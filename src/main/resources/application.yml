@@ -1,0 +1,12 @@
+server:
+  servlet:
+    context-path: /nea
+  port: 8080
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/nea/auth/realms/baeldung
+          jwk-set-uri: http://localhost:8080/nea/auth/realms/baeldung/protocol/openid-connect/certs
