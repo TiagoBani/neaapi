@@ -1,4 +1,4 @@
-package com.tiagobani.neaapi.dtos.response;
+package com.tiagobani.neaapi.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
@@ -9,7 +9,7 @@ import java.util.List;
 
 @Getter @Setter
 @NoArgsConstructor
-public class NeoItem {
+public class NearEarthObject {
 
     @JsonProperty("neo_reference_id")
     private Long neoReferenceId;
@@ -17,8 +17,5 @@ public class NeoItem {
     private String name;
     @JsonProperty("close_approach_data")
     private List<CloseApproachData> closeApproachData;
-
-    @JsonProperty("is_potentially_hazardous_asteroid")
-    private Boolean isPotentiallyHazardousAsteroid;
 
 }

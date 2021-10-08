@@ -1,4 +1,4 @@
-package com.tiagobani.neaapi.dtos.response;
+package com.tiagobani.neaapi.dtos.feed.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -8,10 +8,10 @@ import lombok.Setter;
 
 @Getter @Setter
 @NoArgsConstructor
-public class CloseApproachData {
+public class CloseApproachDataResponse {
 
     @JsonProperty("relative_velocity")
-    private RelativeVelocity relativeVelocity;
+    private RelativeVelocityResponse relativeVelocity;
 
     @JsonProperty("orbiting_body")
     private String orbitingBody;
@@ -19,7 +19,7 @@ public class CloseApproachData {
     @Getter @Setter
     @NoArgsConstructor
     @AllArgsConstructor
-    static class RelativeVelocity {
+    static class RelativeVelocityResponse {
 
         @JsonProperty("kilometers_per_hour")
         private String kilometersPerHour;
