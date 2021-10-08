@@ -9,6 +9,8 @@ import com.tiagobani.neaapi.dtos.feed.response.FeedResponse;
 import com.tiagobani.neaapi.dtos.feed.response.NeoItemResponse;
 import com.tiagobani.neaapi.exceptions.NeaFeedException;
 import com.tiagobani.neaapi.gateways.NeaGateway;
+import com.tiagobani.neaapi.mappers.IFeedMapper;
+import com.tiagobani.neaapi.models.NearEarthObject;
 import feign.FeignException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -28,7 +30,8 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class NeaService {
 
-    private final ObjectMapper mapper;
+    private final ObjectMapper objectMapper;
+    private final IFeedMapper feedMapper;
     private final NeaGateway neaGateway;
 
     public FeedResponse getFeedsByStartDateAndEndDate(FeedRequest request) throws JsonProcessingException {
@@ -44,31 +47,30 @@ public class NeaService {
             return neaGateway.getFeeds(startDateParsed, endDateParsed);
         }catch (FeignException ex){
             log.info(ex.contentUTF8());
-            var error = mapper.readValue(ex.contentUTF8(), FeedErrorResponse.class);
+            var error = objectMapper.readValue(ex.contentUTF8(), FeedErrorResponse.class);
             throw new NeaFeedException(error.getErrorMessage());
         }
     }
 
-    public List<NeoItemResponse> filterValidNeoItem(List<NeoItemResponse> neoItemResponses){
+    public List<NearEarthObject> filterValidNeoItem(List<NeoItemResponse> neoItemResponses){
         return Optional.ofNullable(neoItemResponses).orElseGet(ArrayList::new).parallelStream()
                 .filter(this::validateNeoItem)
                 .filter(neoItemResponse -> validateCloseApproachData(neoItemResponse.getCloseApproachData()))
-                .map(neoItemResponse -> {
-
-                    neoItemResponse.setIsPotentiallyHazardousAsteroid(null);
-                    neoItemResponse.getCloseApproachData().get(0).setOrbitingBody(null);
-
-                    return neoItemResponse;
-                })
+                .map(this::mapToModel)
                 .collect(Collectors.toList());
     }
 
     public Boolean validateNeoItem(NeoItemResponse neoItemResponse){
         return Objects.requireNonNullElse(neoItemResponse.getIsPotentiallyHazardousAsteroid(), false);
     }
+
     public Boolean validateCloseApproachData(List<CloseApproachDataResponse> closeApproachDatumResponses){
         return Optional.ofNullable(closeApproachDatumResponses).orElseGet(ArrayList::new).parallelStream()
                 .map(CloseApproachDataResponse::getOrbitingBody)
                 .anyMatch(orbitingBody -> orbitingBody.equalsIgnoreCase("Earth"));
+    }
+
+    public NearEarthObject mapToModel(NeoItemResponse neoItemResponse){
+        return feedMapper.sourceToDestination(neoItemResponse);
     }
 }

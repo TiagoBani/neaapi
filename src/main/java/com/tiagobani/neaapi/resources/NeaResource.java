@@ -2,7 +2,7 @@ package com.tiagobani.neaapi.resources;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.tiagobani.neaapi.dtos.feed.request.FeedRequest;
-import com.tiagobani.neaapi.dtos.feed.response.NeoItemResponse;
+import com.tiagobani.neaapi.models.NearEarthObject;
 import com.tiagobani.neaapi.services.NeaService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -28,11 +28,11 @@ public class NeaResource {
     private final NeaService service;
 
     @GetMapping(value = "/feed")
-    public ResponseEntity<Map<String, List<NeoItemResponse>>> getFeed(@Valid FeedRequest feedRequest) throws JsonProcessingException {
+    public ResponseEntity<Map<String, List<NearEarthObject>>> getFeed(@Valid FeedRequest feedRequest) throws JsonProcessingException {
 
         var neoItems = service.getFeedsByStartDateAndEndDate(feedRequest);
 
-        Map<String, List<NeoItemResponse>> result = new HashMap<>();
+        Map<String, List<NearEarthObject>> result = new HashMap<>();
         for (String key: neoItems.getNeos().keySet()) {
             var neoItemsFiltered = service.filterValidNeoItem(neoItems.getNeos().get(key));
             result.put(key, neoItemsFiltered);
@@ -42,7 +42,7 @@ public class NeaResource {
     }
 
     @GetMapping(value = "/feed/{requestDate}")
-    public ResponseEntity<List<NeoItemResponse>> getFeed(
+    public ResponseEntity<List<NearEarthObject>> getFeed(
             @DateTimeFormat(pattern = "yyyy-MM-dd")
             @PathVariable( name = "requestDate") LocalDate requestDate
     ) throws JsonProcessingException {
@@ -51,6 +51,7 @@ public class NeaResource {
         var neoItemsFiltered = neoItems.getNeos().get(requestDate.format(DateTimeFormatter.ISO_LOCAL_DATE)).parallelStream()
                 .filter(service::validateNeoItem)
                 .filter(neoItemResponse -> service.validateCloseApproachData(neoItemResponse.getCloseApproachData()))
+                .map(service::mapToModel)
                 .collect(Collectors.toList());
 
         return ResponseEntity.ok(neoItemsFiltered);
