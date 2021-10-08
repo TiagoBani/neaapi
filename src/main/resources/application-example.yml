@@ -13,7 +13,7 @@ spring:
 nea-gateway:
   url: https://api.nasa.gov
   name: neaGateway
-  api_key: ${API_KEY}
+  api_key: you_api_key
 
 logging.level.com.tiagobani.neaapi.gateways.NeaGateway: DEBUG
 
