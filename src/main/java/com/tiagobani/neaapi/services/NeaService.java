@@ -14,10 +14,11 @@ import com.tiagobani.neaapi.models.NearEarthObject;
 import feign.FeignException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.time.Duration;
 import java.time.LocalDate;
-import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +31,8 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class NeaService {
 
+    @Value("${nea-gateway.dateRangeInvalid:7}")
+    private Long dateRangeInvalid;
     private final ObjectMapper objectMapper;
     private final IFeedMapper feedMapper;
     private final NeaGateway neaGateway;
@@ -37,7 +40,8 @@ public class NeaService {
     public FeedResponse getFeedsByStartDateAndEndDate(FeedRequest request) throws JsonProcessingException {
         LocalDate startDate = Optional.ofNullable(request.getStartDate()).orElse(LocalDate.now());
         LocalDate endDate = Optional.ofNullable(request.getEndDate()).orElse(startDate);
-        if(Period.between(startDate, endDate).getDays() > 7)
+
+        if(Duration.between(startDate.atStartOfDay(), endDate.atStartOfDay()).toDays() > dateRangeInvalid)
             throw new NeaFeedException("The Feed date limit is only 7 Days");
 
         String startDateParsed = startDate.format(DateTimeFormatter.ISO_LOCAL_DATE);

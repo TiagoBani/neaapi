@@ -11,7 +11,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/nea/feed?startDate=2020-12-11&endDate=2020-12-19",
+					"raw": "http://localhost:8080/nea/feed?startDate=2020-12-12&endDate=2020-12-19",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -24,7 +24,7 @@
 					"query": [
 						{
 							"key": "startDate",
-							"value": "2020-12-11"
+							"value": "2020-12-12"
 						},
 						{
 							"key": "endDate",
@@ -391,6 +391,75 @@
 					],
 					"cookie": [],
 					"body": "[\n    {\n        \"neo_reference_id\": 2481817,\n        \"name\": \"481817 (2008 UL90)\",\n        \"close_approach_data\": [\n            {\n                \"relative_velocity\": {\n                    \"kilometers_per_hour\": \"70343.1697857311\"\n                },\n                \"orbiting_body\": \"Earth\"\n            }\n        ],\n        \"is_potentially_hazardous_asteroid\": true\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "health check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/nea/actuator/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"nea",
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "health check",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/nea/actuator/health",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"nea",
+								"actuator",
+								"health"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/vnd.spring-boot.actuator.v3+json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Oct 2021 23:26:03 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"UP\"\n}"
 				}
 			]
 		}
