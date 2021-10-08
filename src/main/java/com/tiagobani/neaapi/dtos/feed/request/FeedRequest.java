@@ -1,4 +1,4 @@
-package com.tiagobani.neaapi.dtos.request;
+package com.tiagobani.neaapi.dtos.feed.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,6 +1,6 @@
 package com.tiagobani.neaapi.gateways;
 
-import com.tiagobani.neaapi.dtos.response.FeedResponse;
+import com.tiagobani.neaapi.dtos.feed.response.FeedResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

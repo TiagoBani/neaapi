@@ -1,10 +1,10 @@
-package com.tiagobani.neaapi.dtos.response;
+package com.tiagobani.neaapi.dtos.feed.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 
 @Getter
-public class FeedError {
+public class FeedErrorResponse {
 
     @JsonProperty("code")
     private Integer status;
