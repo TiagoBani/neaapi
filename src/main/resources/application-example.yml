@@ -13,7 +13,8 @@ spring:
 nea-gateway:
   url: https://api.nasa.gov
   name: neaGateway
-  api_key: you_api_key
+  apiKey: you_api_key
+  dateRangeInvalid: 7
 
 logging.level.com.tiagobani.neaapi.gateways.NeaGateway: DEBUG
 
