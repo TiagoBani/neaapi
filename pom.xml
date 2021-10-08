@@ -127,6 +127,7 @@
                 <configuration>
                     <excludes>
                         <exclude>**/**/NeaApiApplication.*</exclude>
+                        <exclude>**/**/**/exceptions/*</exclude>
                     </excludes>
                 </configuration>
                 <executions>
