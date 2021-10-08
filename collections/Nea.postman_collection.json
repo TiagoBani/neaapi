@@ -1,0 +1,398 @@
+{
+	"info": {
+		"_postman_id": "ee0af670-2fe3-4791-a78d-9b83e9cdd254",
+		"name": "Nea",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "find near earth objects by range of dates",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/nea/feed?startDate=2020-12-11&endDate=2020-12-19",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"nea",
+						"feed"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2020-12-11"
+						},
+						{
+							"key": "endDate",
+							"value": "2020-12-19"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/nea/feed?startDate=2020-12-12&endDate=2020-12-19",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"nea",
+								"feed"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2020-12-12"
+								},
+								{
+									"key": "endDate",
+									"value": "2020-12-19"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Oct 2021 07:20:53 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"2020-12-18\": [\n        {\n            \"neo_reference_id\": 2488490,\n            \"name\": \"488490 (2000 AF205)\",\n            \"close_approach_data\": [\n                {\n                    \"relative_velocity\": {\n                        \"kilometers_per_hour\": \"39966.6980890555\"\n                    }\n                }\n            ]\n        },\n        {\n            \"neo_reference_id\": 3120894,\n            \"name\": \"(2002 GZ8)\",\n            \"close_approach_data\": [\n                {\n                    \"relative_velocity\": {\n                        \"kilometers_per_hour\": \"37710.4670566067\"\n                    }\n                }\n            ]\n        },\n        {\n            \"neo_reference_id\": 3752106,\n            \"name\": \"(2016 HL)\",\n            \"close_approach_data\": [\n                {\n                    \"relative_velocity\": {\n                        \"kilometers_per_hour\": \"46713.4772165968\"\n                    }\n                }\n            ]\n        },\n        {\n            \"neo_reference_id\": 54101655,\n            \"name\": \"(2020 YL1)\",\n            \"close_approach_data\": [\n                {\n                    \"relative_velocity\": {\n                        \"kilometers_per_hour\": \"90771.7099820173\"\n                    }\n                }\n            ]\n        }\n    ],\n    \"2020-12-19\": [\n        {\n            \"neo_reference_id\": 2006037,\n            \"name\": \"6037 (1988 EG)\",\n            \"close_approach_data\": [\n                {\n                    \"relative_velocity\": {\n                        \"kilometers_per_hour\": \"51876.978846871\"\n                    }\n                }\n            ]\n        }\n    ],\n    \"2020-12-16\": [\n        {\n            \"neo_reference_id\": 2138175,\n            \"name\": \"138175 (2000 EE104)\",\n            \"close_approach_data\": [\n                {\n                    \"relative_velocity\": {\n                        \"kilometers_per_hour\": \"25191.8214729579\"\n                    }\n                }\n            ]\n        },\n        {\n            \"neo_reference_id\": 3167345,\n            \"name\": \"(2003 WP21)\",\n            \"close_approach_data\": [\n                {\n                    \"relative_velocity\": {\n                        \"kilometers_per_hour\": \"57683.8284511781\"\n                    }\n                }\n            ]\n        },\n        {\n            \"neo_reference_id\": 54105560,\n            \"name\": \"(2021 AL6)\",\n            \"close_approach_data\": [\n                {\n                    \"relative_velocity\": {\n                        \"kilometers_per_hour\": \"82688.732009262\"\n                    }\n                }\n            ]\n        }\n    ],\n    \"2020-12-17\": [\n        {\n            \"neo_reference_id\": 2417217,\n            \"name\": \"417217 (2005 YS)\",\n            \"close_approach_data\": [\n                {\n                    \"relative_velocity\": {\n                        \"kilometers_per_hour\": \"48450.6302685793\"\n                    }\n                }\n            ]\n        }\n    ],\n    \"2020-12-14\": [\n        {\n            \"neo_reference_id\": 54106742,\n            \"name\": \"(2021 BF3)\",\n            \"close_approach_data\": [\n                {\n                    \"relative_velocity\": {\n                        \"kilometers_per_hour\": \"64403.0789315335\"\n                    }\n                }\n            ]\n        }\n    ],\n    \"2020-12-15\": [],\n    \"2020-12-12\": [\n        {\n            \"neo_reference_id\": 2481817,\n            \"name\": \"481817 (2008 UL90)\",\n            \"close_approach_data\": [\n                {\n                    \"relative_velocity\": {\n                        \"kilometers_per_hour\": \"70343.1697857311\"\n                    }\n                }\n            ]\n        }\n    ],\n    \"2020-12-13\": [\n        {\n            \"neo_reference_id\": 2163364,\n            \"name\": \"163364 (2002 OD20)\",\n            \"close_approach_data\": [\n                {\n                    \"relative_velocity\": {\n                        \"kilometers_per_hour\": \"21608.6663844707\"\n                    }\n                }\n            ]\n        },\n        {\n            \"neo_reference_id\": 3102717,\n            \"name\": \"(2001 YV3)\",\n            \"close_approach_data\": [\n                {\n                    \"relative_velocity\": {\n                        \"kilometers_per_hour\": \"73347.5694612856\"\n                    }\n                }\n            ]\n        }\n    ]\n}"
+				},
+				{
+					"name": "Error - date with bad foratted",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/nea/feed?startDate=2020-12-121&endDate=2020-12-19",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"nea",
+								"feed"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2020-12-121"
+								},
+								{
+									"key": "endDate",
+									"value": "2020-12-19"
+								}
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Oct 2021 07:22:40 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"timestamp\": 1633677760786,\n    \"message\": \"Value with format invalid\",\n    \"path\": \"uri=/nea/feed\",\n    \"details\": \"[startDate]: 2020-12-121 \"\n}"
+				},
+				{
+					"name": "Error - dates without os range accept",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/nea/feed?startDate=2020-12-11&endDate=2020-12-19",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"nea",
+								"feed"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2020-12-11"
+								},
+								{
+									"key": "endDate",
+									"value": "2020-12-19"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Oct 2021 07:27:54 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"timestamp\": 1633678074107,\n    \"message\": \"The Feed date limit is only 7 Days\",\n    \"path\": \"uri=/nea/feed\"\n}"
+				}
+			]
+		},
+		{
+			"name": "find near earth objects by date",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/nea/feed/2020-12-12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"nea",
+						"feed",
+						"2020-12-12"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Error - param with bad format",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/nea/feed/2020-12-12&endDate=2020-12-19",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"nea",
+								"feed",
+								"2020-12-12&endDate=2020-12-19"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Oct 2021 07:35:48 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"timestamp\": 1633678548579,\n    \"message\": \"Text '2020-12-12&endDate=2020-12-19' could not be parsed, unparsed text found at index 10\",\n    \"path\": \"uri=/nea/feed/2020-12-12&endDate=2020-12-19\",\n    \"details\": \"[requestDate]: 2020-12-12&endDate=2020-12-19\"\n}"
+				},
+				{
+					"name": "Error - param with bad format 2",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/nea/feed/2020-12-121",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"nea",
+								"feed",
+								"2020-12-121"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Oct 2021 07:36:32 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"timestamp\": 1633678592352,\n    \"message\": \"Text '2020-12-121' could not be parsed, unparsed text found at index 10\",\n    \"path\": \"uri=/nea/feed/2020-12-121\",\n    \"details\": \"[requestDate]: 2020-12-121\"\n}"
+				},
+				{
+					"name": "Error - date invalid",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/nea/feed/2022-12-12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"nea",
+								"feed",
+								"2022-12-12"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Oct 2021 07:37:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"timestamp\": 1633678646168,\n    \"message\": \"The Feed date limit is only 7 Days\",\n    \"path\": \"uri=/nea/feed/2022-12-12\"\n}"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/nea/feed/2020-12-12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"nea",
+								"feed",
+								"2020-12-12"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Oct 2021 07:39:45 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"neo_reference_id\": 2481817,\n        \"name\": \"481817 (2008 UL90)\",\n        \"close_approach_data\": [\n            {\n                \"relative_velocity\": {\n                    \"kilometers_per_hour\": \"70343.1697857311\"\n                },\n                \"orbiting_body\": \"Earth\"\n            }\n        ],\n        \"is_potentially_hazardous_asteroid\": true\n    }\n]"
+				}
+			]
+		}
+	]
+}
