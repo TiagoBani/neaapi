@@ -13,7 +13,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests(auth -> auth
                         .mvcMatchers("/actuator/health").permitAll()
-                        .mvcMatchers("/feed").permitAll().anyRequest().authenticated())
+                        .mvcMatchers("/feed/**").permitAll().anyRequest().authenticated())
                 .oauth2Login()
                 .and()
                 .logout()
